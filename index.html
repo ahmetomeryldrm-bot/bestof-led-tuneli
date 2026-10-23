@@ -1,0 +1,226 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="description" content="LYK 13 Best Of için üç duvarı LED tünelin hareketli gösterileri ve konseptleri."><meta property="og:title" content="Best Of LED Tüneli"><meta property="og:description" content="LYK 13 Best Of için üç duvarı LED tünelin hareketli gösterileri ve konseptleri."><meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/07d61c20-4834-4b97-8bc4-ba30f53de252.jpg"><meta property="og:type" content="website"></head><body><title>Best Of LED Tüneli</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,500;112,800&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Düzen: gece galerisi. Her konsept tam genişlikte bir levha; görsel önde, metin ve ölçüler sakin bir sütunda. Tek koyu dünya (LED içerik karanlıkta değerlendirilir). */
+:root {
+  color-scheme: dark;
+  --gece: #0d0a13;
+  --kadife: #17111f;
+  --cizgi: #2b2236;
+  --inci: #efe9f5;
+  --sis: #a597b5;
+  --lila: #c7a9f2;
+  --f-baslik: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-metin: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  --f-veri: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --olcek-1: clamp(2.4rem, 6vw, 4.6rem);
+  --olcek-2: clamp(1.6rem, 3.2vw, 2.3rem);
+  --olcek-3: 1.0625rem;
+  --olcek-4: 0.8125rem;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0;
+  background: var(--gece);
+  color: var(--inci);
+  font: 400 var(--olcek-3)/1.6 var(--f-metin);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.sayfa { max-width: 1180px; margin: 0 auto; padding-block: clamp(32px, 6vw, 72px) 64px; display: grid; gap: clamp(56px, 9vw, 104px); }
+.ust { display: grid; gap: 20px; max-width: 820px; }
+.kasa { font: 500 var(--olcek-4)/1.4 var(--f-veri); letter-spacing: 0.08em; text-transform: uppercase; color: var(--lila); }
+h1 { margin: 0; font: 800 var(--olcek-1)/0.98 var(--f-baslik); font-stretch: 112%; letter-spacing: -0.01em; text-wrap: balance; }
+.giris { margin: 0; color: var(--inci); max-width: 64ch; }
+.olculer { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: var(--cizgi); border: 1px solid var(--cizgi); }
+.olcu { background: var(--gece); padding: 18px 20px; display: grid; gap: 6px; align-content: start; }
+.olcu b { font: 500 var(--olcek-4)/1.3 var(--f-metin); color: var(--sis); letter-spacing: 0.04em; text-transform: uppercase; }
+.olcu span { font: 400 0.95rem/1.5 var(--f-veri); font-variant-numeric: tabular-nums; }
+.olcu small { color: var(--sis); font-size: var(--olcek-4); }
+.not { margin: 0; color: var(--sis); font-size: 0.95rem; max-width: 70ch; }
+
+.konsept { display: grid; gap: 22px; }
+.k-bas { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; border-top: 1px solid var(--cizgi); padding-top: 22px; }
+.harf { font: 500 var(--olcek-4)/1 var(--f-veri); color: var(--lila); letter-spacing: 0.08em; }
+h2 { margin: 0; font: 800 var(--olcek-2)/1.1 var(--f-baslik); font-stretch: 112%; text-wrap: balance; }
+.k-fikir { margin: 0; max-width: 68ch; color: var(--inci); }
+.sekmeler { display: flex; flex-wrap: wrap; gap: 8px; }
+.sekme {
+  font: 500 0.875rem/1 var(--f-metin); color: var(--sis); background: transparent;
+  border: 1px solid var(--cizgi); padding: 10px 14px; cursor: pointer;
+}
+.sekme:hover { color: var(--inci); border-color: var(--sis); }
+.sekme[aria-selected="true"] { color: var(--gece); background: var(--lila); border-color: var(--lila); }
+.sekme:focus-visible { outline: 2px solid var(--lila); outline-offset: 2px; }
+.cerceve { background: var(--kadife); border: 1px solid var(--cizgi); display: grid; place-items: center; overflow: hidden; }
+.cerceve > * { display: block; max-width: 100%; height: auto; }
+.cerceve .kare { max-height: min(78vh, 900px); width: auto; }
+.cerceve .serit { width: 100%; }
+.alt-yazi { margin: 0; color: var(--sis); font-size: var(--olcek-4); max-width: 80ch; }
+.alt-yazi code { font-family: var(--f-veri); color: var(--inci); }
+
+.gosteriler { display: grid; gap: 28px; }
+.gosteri-izgara { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 28px; }
+.gosteri { display: grid; gap: 12px; align-content: start; }
+.gosteri video { width: 100%; height: auto; display: block; background: var(--kadife); border: 1px solid var(--cizgi); }
+.gosteri h3 { margin: 0; font: 800 1.35rem/1.15 var(--f-baslik); font-stretch: 112%; }
+.gosteri p { margin: 0; color: var(--inci); max-width: 60ch; }
+.gosteri .sure { font: 500 var(--olcek-4)/1 var(--f-veri); color: var(--lila); letter-spacing: 0.06em; }
+.bolum-bas { display: grid; gap: 10px; border-top: 1px solid var(--cizgi); padding-top: 28px; }
+.son { border-top: 1px solid var(--cizgi); padding-top: 28px; display: grid; gap: 18px; }
+.son h2 { font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
+.son ol { margin: 0; padding-left: 1.3em; display: grid; gap: 10px; max-width: 72ch; }
+.son li::marker { color: var(--lila); font-family: var(--f-veri); }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+
+<main class="sayfa">
+  <header class="ust">
+    <div class="kasa">Liderlik Yolu Kampı 13 · Best Of · 24–26 Kasım · Royal Seginus</div>
+    <h1>Best Of LED Tüneli</h1>
+    <p class="giris">LYK 12'deki üç duvarı LED tünel bu kez fotoğrafçının bakış noktasına göre tasarlanmış içerikle kullanılıyor. O noktadan bakınca duvarlar kayboluyor; içeri giren kişi bir saray koridorunda, Best Of sahnesinde ya da bulutların üstünde duruyormuş gibi görünüyor. Aşağıdaki önizlemeler LYK 12'nin gerçek tünel fotoğrafının üstüne yerleştirildi; tavan aynası ve parlak zemindeki yansımalar da yeni içeriğe göre üretildi.</p>
+    <div class="olculer">
+      <div class="olcu"><b>Tünel</b><span>2,5 m en · 2,5 m yükseklik · 3 m derinlik</span><small>Çalışma ölçüsü; firma netleştirecek</small></div>
+      <div class="olcu"><b>LED</b><span>≈ P3,9 · arka 640×640 · yanlar 768×640 px</span><small>LYK 12 fotoğraflarından ölçüldü</small></div>
+      <div class="olcu"><b>Fotoğrafçı noktası</b><span>Açıklığın 3,8 m önü · ortada · objektif 1,2 m</span><small>Yere bantla işaretlenecek</small></div>
+    </div>
+    <p class="not">Derinlik etkisi fotoğrafçının noktasından tam oturur. Başka açılardan bakan biri duvarları normal bir ekran gibi görür; hareketli çekimlerde de güzel durması için içerikler buna göre seçildi.</p>
+  </header>
+
+  <section class="gosteriler">
+    <div class="kasa">Hareketli gösteriler · LYK 12 tünel fotoğrafında önizleme</div>
+    <div class="gosteri-izgara">
+      <article class="gosteri">
+        <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/65a9d290-bbf7-454c-8127-ff9a663db5a8.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/03d8c262-826d-444b-85f4-8975c7d342ba.jpg" controls muted loop playsinline preload="metadata"></video>
+        <span class="sure">32 sn döngü</span>
+        <h3>Perde Açılışı</h3>
+        <p>Kapalı mor kadife perdede spot ışığında Best Of logosu. Perde açılıyor, ana sahne beliriyor; ışıklar, soğuk kıvılcımlar ve konfeti patlıyor, sonra perde yeniden kapanıyor. Fotoğrafçı en güzel karesini açılış anında yakalar.</p>
+      </article>
+      <article class="gosteri">
+        <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/a2d33573-abe6-4998-aa10-d858dcd4e5dc.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/e3206c01-0399-4de4-b73f-8cd605455468.jpg" controls muted loop playsinline preload="metadata"></video>
+        <span class="sure">34 sn döngü</span>
+        <h3>Yükselen Kapsül</h3>
+        <p>Tünel cam bir kapsül. Görkemli bir balo salonunda bekliyor, avizelerin arasından yükselip otelin kubbesinden çıkıyor, bulutların üstüne varıyor ve süzülüyor. Sonra yavaşça salona geri iniyor.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="bolum-bas">
+    <div class="kasa">Sabit sahneler</div>
+    <h2>Beş konsept, beş dünya</h2>
+    <p class="k-fikir">Her konsept tünelde kusursuz dönen bir döngü olarak oynar. Gösterilerin arasında ya da tek başına kullanılabilir.</p>
+  </section>
+
+  <section class="konsept" id="koridor">
+    <div class="k-bas"><span class="harf">A</span><h2>Best Of Saray Koridoru</h2></div>
+    <p class="k-fikir">Tünel sonsuz bir saray koridoruna açılıyor: mor kadife duvarlar, gül altını sütunlar, kristal avizeler. Ana sahnedeki pırlantalı çerçevelerin içinde LYK 6–12&#x27;nin en güzel anları duruyor; kişinin arkasında kemerli bir ışık kapısı, üstünde Best Of logosu var.</p>
+    <div class="sekmeler" role="tablist">
+      <button class="sekme" type="button" id="koridor-foto" data-hedef="foto" aria-selected="true">Fotoğrafta</button>
+      <button class="sekme" type="button" id="koridor-hareket" data-hedef="hareket" aria-selected="false">Hareketli</button>
+      <button class="sekme" type="button" id="koridor-sahne" data-hedef="sahne" aria-selected="false">Tam sahne</button>
+      <button class="sekme" type="button" id="koridor-serit" data-hedef="serit" aria-selected="false">LED şeridi</button>
+    </div>
+      <div class="cerceve" data-panel="foto"><img class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/0cb394e7-5dc1-4f0d-957d-3d4cd61cd9c9.jpg" alt="Best Of Saray Koridoru: LYK 12 tünel fotoğrafında önizleme" loading="lazy" width="2000" height="1333"></div>
+      <div class="cerceve" data-panel="hareket" hidden><video class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/bd0b2b59-e379-4a87-83f3-c46497e59639.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/0cb394e7-5dc1-4f0d-957d-3d4cd61cd9c9.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="cerceve" data-panel="sahne" hidden><img class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/e9f433a4-ac80-4df7-b90c-6c540963b4ac.jpg" alt="Best Of Saray Koridoru: fotoğrafçının gözünden tam sahne" loading="lazy" width="1600" height="1600"></div>
+      <div class="cerceve" data-panel="serit" hidden><video class="serit" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/47918bc9-73b6-4bf2-8c15-452d863c80a8.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/c8de7272-db0e-4d8e-bccd-d2abdcf1cb2d.jpg" muted loop playsinline preload="none"></video></div>
+    <p class="alt-yazi">LED şeridi, üç duvara fiziksel olarak yüklenecek görüntü: <code>sol 768</code> · <code>arka 640</code> · <code>sağ 768</code> piksel. Yan duvarlardaki gerilme kasıtlı; fotoğrafçının noktasından düzgün görünür.</p>
+  </section>
+
+  <section class="konsept" id="tac">
+    <div class="k-bas"><span class="harf">B</span><h2>Taç Anı</h2></div>
+    <p class="k-fikir">Kadife bir mücevher salonu. İki yanda havada asılı dev pırlantalar, ortada gül altını bir taç. Fotoğrafta taç, kişinin başının hemen üstünde duruyormuş gibi görünüyor.</p>
+    <div class="sekmeler" role="tablist">
+      <button class="sekme" type="button" id="tac-foto" data-hedef="foto" aria-selected="true">Fotoğrafta</button>
+      <button class="sekme" type="button" id="tac-hareket" data-hedef="hareket" aria-selected="false">Hareketli</button>
+      <button class="sekme" type="button" id="tac-sahne" data-hedef="sahne" aria-selected="false">Tam sahne</button>
+      <button class="sekme" type="button" id="tac-serit" data-hedef="serit" aria-selected="false">LED şeridi</button>
+    </div>
+      <div class="cerceve" data-panel="foto"><img class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/f401ae89-8c23-422b-bf99-be4203fbb0d9.jpg" alt="Taç Anı: LYK 12 tünel fotoğrafında önizleme" loading="lazy" width="2000" height="1333"></div>
+      <div class="cerceve" data-panel="hareket" hidden><video class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/9c2dcaf5-c543-47f1-b1eb-e182b3419753.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/f401ae89-8c23-422b-bf99-be4203fbb0d9.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="cerceve" data-panel="sahne" hidden><img class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/19259bb0-d507-4fb9-8c01-20d754f68567.jpg" alt="Taç Anı: fotoğrafçının gözünden tam sahne" loading="lazy" width="1600" height="1600"></div>
+      <div class="cerceve" data-panel="serit" hidden><video class="serit" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/4015c619-d3c5-474e-b25b-dac808dc9579.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/b464723e-b790-4568-9e73-78e452387d93.jpg" muted loop playsinline preload="none"></video></div>
+    <p class="alt-yazi">LED şeridi, üç duvara fiziksel olarak yüklenecek görüntü: <code>sol 768</code> · <code>arka 640</code> · <code>sağ 768</code> piksel. Yan duvarlardaki gerilme kasıtlı; fotoğrafçının noktasından düzgün görünür.</p>
+  </section>
+
+  <section class="konsept" id="sahne">
+    <div class="k-bas"><span class="harf">C</span><h2>Sahne Senin</h2></div>
+    <p class="k-fikir">Kişi Best Of ana sahnesinin önünde duruyor: arkada ana sahne tasarımı dev ekranda, tepeden ışık hüzmeleri, havada konfeti, sahne kenarında soğuk kıvılcımlar. Etkinliğin ana sahnesiyle aynı dili konuşuyor.</p>
+    <div class="sekmeler" role="tablist">
+      <button class="sekme" type="button" id="sahne-foto" data-hedef="foto" aria-selected="true">Fotoğrafta</button>
+      <button class="sekme" type="button" id="sahne-hareket" data-hedef="hareket" aria-selected="false">Hareketli</button>
+      <button class="sekme" type="button" id="sahne-sahne" data-hedef="sahne" aria-selected="false">Tam sahne</button>
+      <button class="sekme" type="button" id="sahne-serit" data-hedef="serit" aria-selected="false">LED şeridi</button>
+    </div>
+      <div class="cerceve" data-panel="foto"><img class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/07d61c20-4834-4b97-8bc4-ba30f53de252.jpg" alt="Sahne Senin: LYK 12 tünel fotoğrafında önizleme" loading="lazy" width="2000" height="1333"></div>
+      <div class="cerceve" data-panel="hareket" hidden><video class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/3a7c6982-16ad-477e-b6c9-4bb5d6858cc5.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/07d61c20-4834-4b97-8bc4-ba30f53de252.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="cerceve" data-panel="sahne" hidden><img class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/c4561a38-e625-44f4-b1d4-798e22e3f31b.jpg" alt="Sahne Senin: fotoğrafçının gözünden tam sahne" loading="lazy" width="1600" height="1600"></div>
+      <div class="cerceve" data-panel="serit" hidden><video class="serit" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/bbe7004e-f1bf-4408-9da4-b9a1b6852e65.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/ce64fa1f-96ed-4516-986a-cdf8ceaf2768.jpg" muted loop playsinline preload="none"></video></div>
+    <p class="alt-yazi">LED şeridi, üç duvara fiziksel olarak yüklenecek görüntü: <code>sol 768</code> · <code>arka 640</code> · <code>sağ 768</code> piksel. Yan duvarlardaki gerilme kasıtlı; fotoğrafçının noktasından düzgün görünür.</p>
+  </section>
+
+  <section class="konsept" id="yukselis">
+    <div class="k-bas"><span class="harf">D</span><h2>Yıldızlara Yükseliş</h2></div>
+    <p class="k-fikir">Tünel, bulutların üstünde yükselen cam bir kapsüle dönüşüyor: yıldızlı gece, mor ufuk, ay ışığı. Yan duvarların altında uzanan bulut denizi fotoğrafa baş döndüren bir derinlik katıyor.</p>
+    <div class="sekmeler" role="tablist">
+      <button class="sekme" type="button" id="yukselis-foto" data-hedef="foto" aria-selected="true">Fotoğrafta</button>
+      <button class="sekme" type="button" id="yukselis-hareket" data-hedef="hareket" aria-selected="false">Hareketli</button>
+      <button class="sekme" type="button" id="yukselis-sahne" data-hedef="sahne" aria-selected="false">Tam sahne</button>
+      <button class="sekme" type="button" id="yukselis-serit" data-hedef="serit" aria-selected="false">LED şeridi</button>
+    </div>
+      <div class="cerceve" data-panel="foto"><img class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/1a7a3b80-9fae-4a88-aabb-4b8b1cee70a2.jpg" alt="Yıldızlara Yükseliş: LYK 12 tünel fotoğrafında önizleme" loading="lazy" width="2000" height="1333"></div>
+      <div class="cerceve" data-panel="hareket" hidden><video class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/42e9147e-7dd2-46f6-b669-0058238467bd.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/1a7a3b80-9fae-4a88-aabb-4b8b1cee70a2.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="cerceve" data-panel="sahne" hidden><img class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/4b5692d0-ac48-447a-9635-4e81d55a0dc7.jpg" alt="Yıldızlara Yükseliş: fotoğrafçının gözünden tam sahne" loading="lazy" width="1600" height="1600"></div>
+      <div class="cerceve" data-panel="serit" hidden><video class="serit" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/b685cf1f-a1fd-45f7-a1ea-cb9d3817c0e7.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/d3cf99ae-8759-41c3-94cb-a578604c94ce.jpg" muted loop playsinline preload="none"></video></div>
+    <p class="alt-yazi">LED şeridi, üç duvara fiziksel olarak yüklenecek görüntü: <code>sol 768</code> · <code>arka 640</code> · <code>sağ 768</code> piksel. Yan duvarlardaki gerilme kasıtlı; fotoğrafçının noktasından düzgün görünür.</p>
+  </section>
+
+  <section class="konsept" id="sera">
+    <div class="k-bas"><span class="harf">E</span><h2>Kristal Gül Serası</h2></div>
+    <p class="k-fikir">Gece aydınlatılmış camdan bir saray serası: beyaz mermer yol, iki yanda pembe, beyaz ve lila güller, gül altını kemerler, yolun sonunda ışıklı bir köşk. Homm&#x27;un bitkisel kökenine bir selam.</p>
+    <div class="sekmeler" role="tablist">
+      <button class="sekme" type="button" id="sera-foto" data-hedef="foto" aria-selected="true">Fotoğrafta</button>
+      <button class="sekme" type="button" id="sera-hareket" data-hedef="hareket" aria-selected="false">Hareketli</button>
+      <button class="sekme" type="button" id="sera-sahne" data-hedef="sahne" aria-selected="false">Tam sahne</button>
+      <button class="sekme" type="button" id="sera-serit" data-hedef="serit" aria-selected="false">LED şeridi</button>
+    </div>
+      <div class="cerceve" data-panel="foto"><img class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/44a9e198-4c38-460e-9e58-fad33a4bb241.jpg" alt="Kristal Gül Serası: LYK 12 tünel fotoğrafında önizleme" loading="lazy" width="2000" height="1333"></div>
+      <div class="cerceve" data-panel="hareket" hidden><video class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/f1e1cc9b-a6c2-48f6-b803-d6ddb1ea2451.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/44a9e198-4c38-460e-9e58-fad33a4bb241.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="cerceve" data-panel="sahne" hidden><img class="kare" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/efcfcadf-1c6a-491a-9749-4c3293875f12.jpg" alt="Kristal Gül Serası: fotoğrafçının gözünden tam sahne" loading="lazy" width="1600" height="1600"></div>
+      <div class="cerceve" data-panel="serit" hidden><video class="serit" src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/a876886e-e1dc-46d1-adb2-e0b8903b6904.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/3d6a0c0b-0e27-45ca-afb6-cd5db579d507.jpg" muted loop playsinline preload="none"></video></div>
+    <p class="alt-yazi">LED şeridi, üç duvara fiziksel olarak yüklenecek görüntü: <code>sol 768</code> · <code>arka 640</code> · <code>sağ 768</code> piksel. Yan duvarlardaki gerilme kasıtlı; fotoğrafçının noktasından düzgün görünür.</p>
+  </section>
+
+  <section class="son">
+    <h2>Sonraki adımlar</h2>
+    <ol>
+      <li>Patronların seçimi. Birden fazla konsept seçilebilir; tünelde sırayla döngü halinde oynatılır.</li>
+      <li>LED firmasından kesin piksel haritası. Seçilen konseptler o ölçüye göre yeniden çizilir; hat ölçü değişince birkaç dakikada yeniden üretiyor.</li>
+      <li>Hareketli sürümler: her konsept için kusursuz dönen döngüler. İstenirse fotoğraf anına özel kısa "an" videoları eklenir (taç iner, perde açılır, konfeti patlar).</li>
+      <li>Etkinlikte fotoğrafçının yeri yere işaretlenir; fotoğrafçıya çekim anı ve ışık için kısa bir not hazırlanır.</li>
+    </ol>
+  </section>
+</main>
+
+<script>
+document.querySelectorAll(".konsept").forEach(function (k) {
+  var sekmeler = k.querySelectorAll(".sekme");
+  var paneller = k.querySelectorAll("[data-panel]");
+  sekmeler.forEach(function (s) {
+    s.addEventListener("click", function () {
+      sekmeler.forEach(function (x) { x.setAttribute("aria-selected", x === s ? "true" : "false"); });
+      paneller.forEach(function (p) {
+        var acik = p.dataset.panel === s.dataset.hedef;
+        p.hidden = !acik;
+        var v = p.querySelector("video");
+        if (v) { if (acik) { v.play().catch(function () {}); } else { v.pause(); } }
+      });
+    });
+  });
+});
+</script>
+</body></html>
