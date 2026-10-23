@@ -113,9 +113,9 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
   <section class="bolum">
     <div class="bolum-bas"><h2>Hareketli gösteriler</h2><p>Tünelde baştan sona bir hikâye oynar. Fotoğraf en coşkulu anda çekilir.</p></div>
       <article class="secenek" id="secenek-1">
-        <div class="secenek-bas"><span class="no">1</span><h3>Perde Açılışı</h3><p>Kapalı perde açılır, ışıklar ve konfeti patlar, sonra perde yeniden kapanır. <span class="sure">32 saniye</span></p></div>
+        <div class="secenek-bas"><span class="no">1</span><h3>Perde Açılışı</h3><p>Perde hemen açılır, ışıklar ve konfeti patlar, sonra perde kapanıp yeniden açılır. <span class="sure">23 saniye</span></p></div>
         <div class="oynatici" role="button" tabindex="0" aria-label="Perde Açılışı videosunu büyüt">
-          <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/65a9d290-bbf7-454c-8127-ff9a663db5a8.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/03d8c262-826d-444b-85f4-8975c7d342ba.jpg" muted loop playsinline preload="metadata"></video>
+          <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/5a8ddea0-af98-480d-b449-1cbabdbd9955.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/aea6d028-ba5f-4637-ad89-4d35af1ab21c.jpg" muted loop playsinline preload="metadata"></video>
           <span class="ipucu">Büyütmek için dokunun</span>
         </div>
       </article>
@@ -225,12 +225,22 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
   var azalt = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var videolar = Array.prototype.slice.call(document.querySelectorAll('.oynatici video'));
   if ('IntersectionObserver' in window && !azalt) {
+    // Video görünür olduğu anda baştan başlar; ekrandan çıkınca durur, geri gelince yine baştan oynar.
     var io = new IntersectionObserver(function (girdiler) {
       girdiler.forEach(function (g) {
         var v = g.target;
-        if (g.isIntersecting) { v.play().catch(function () {}); } else { v.pause(); }
+        if (g.isIntersecting) {
+          if (!v.dataset.oynuyor) {
+            v.dataset.oynuyor = '1';
+            try { v.currentTime = 0; } catch (e) {}
+            v.play().catch(function () {});
+          }
+        } else if (v.dataset.oynuyor) {
+          delete v.dataset.oynuyor;
+          v.pause();
+        }
       });
-    }, { threshold: 0.35 });
+    }, { threshold: 0.5 });
     videolar.forEach(function (v) { io.observe(v); });
   }
   document.querySelectorAll('.oynatici').forEach(function (o) {
