@@ -56,9 +56,31 @@ h3 { margin: 0; font: 800 clamp(1.45rem, 4.4vw, 2rem)/1.1 var(--f-baslik); font-
 .oynatici { position: relative; background: var(--kadife); border: 1px solid var(--cizgi); cursor: zoom-in; }
 .oynatici video { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
 .ipucu {
-  position: absolute; right: 10px; bottom: 10px; padding: 6px 10px; background: rgba(12, 9, 17, 0.72);
+  position: absolute; right: 10px; bottom: 14px; padding: 6px 10px; background: rgba(12, 9, 17, 0.72);
   color: var(--inci); font: 600 0.78rem/1 var(--f-metin); letter-spacing: 0.02em;
 }
+/* Video olduğu ilk bakışta anlaşılsın: ortada oynat düğmesi (oynamaya başlayınca kaybolur), sol üstte VİDEO, altta süre çubuğu. */
+.oynat {
+  position: absolute; left: 50%; top: 50%; width: clamp(64px, 15vw, 92px); aspect-ratio: 1;
+  transform: translate(-50%, -50%); border-radius: 50%; display: grid; place-items: center;
+  background: rgba(12, 9, 17, 0.58); border: 2px solid rgba(241, 236, 246, 0.92);
+  box-shadow: 0 0 0 7px rgba(203, 176, 245, 0.22), 0 8px 30px rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.oynat svg { width: 42%; margin-left: 9%; fill: var(--inci); }
+.oynatici.oynuyor .oynat {
+  opacity: 0; transform: translate(-50%, -50%) scale(0.7);
+  transition: opacity 0.5s ease 1.1s, transform 0.5s ease 1.1s;
+}
+.rozet {
+  position: absolute; left: 10px; top: 10px; display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 10px 6px 8px; background: rgba(12, 9, 17, 0.72); color: var(--inci);
+  font: 600 0.74rem/1 var(--f-metin); letter-spacing: 0.12em; text-transform: uppercase; pointer-events: none;
+}
+.rozet svg { width: 12px; height: 12px; fill: var(--lila); }
+.ilerleme { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(241, 236, 246, 0.2); pointer-events: none; }
+.ilerleme i { display: block; width: 100%; height: 100%; background: var(--lila); transform-origin: left center; transform: scaleX(0); }
 .oynatici.genis video { aspect-ratio: 16 / 9; }
 .ikili { display: grid; gap: 14px; }
 @media (min-width: 760px) { .ikili { grid-template-columns: 1.2fr 1fr; align-items: start; } }
@@ -94,23 +116,32 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
     <div class="bolum-bas"><span class="kasa">Mekânda</span><h2>Otelde nasıl duracak?</h2><p>LYK 11'de Royal Seginus fuayesinde çektiğimiz görüntülerden yola çıkarak tüneli otelin içine yerleştirdik.</p></div>
       <article class="secenek">
         <div class="secenek-bas tek"><h3>Fuayeden tünele</h3><p>Drone koridor boyunca süzülür ve fotoğrafçının durduğu noktada durur.</p></div>
-        <div class="oynatici genis" role="button" tabindex="0" aria-label="Fuayeden tünele videosunu büyüt">
+        <div class="oynatici genis" role="button" tabindex="0" aria-label="Fuayeden tünele videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/e13f95c1-1bf6-4c63-9c66-4718b0b86a70.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/1bfbb851-01a4-4685-967e-267b53e6aab8.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div>
       </article>
       <article class="secenek">
         <div class="secenek-bas tek"><h3>Tünelin çevresinde</h3><p>Yukarıdan alçalıp tünelin yanına iner: fotoğrafçı, poz veren grup ve sırada bekleyenler.</p></div>
-        <div class="oynatici genis" role="button" tabindex="0" aria-label="Tünelin çevresinde videosunu büyüt">
+        <div class="oynatici genis" role="button" tabindex="0" aria-label="Tünelin çevresinde videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/8456a41f-cd5e-4b36-9bce-67e095dbdd83.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/8a344c32-a64c-4998-8957-3876c5478b22.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div>
       </article>
       <article class="secenek">
         <div class="secenek-bas tek"><h3>Ölçülü canlandırma</h3><p>Aynı uçuşun ölçülü 3B hâli; LED&#x27;lerde gerçek içerik oynar, fotoğrafçının noktasında üç duvar tek bir dünyaya birleşir.</p></div>
-        <div class="oynatici genis" role="button" tabindex="0" aria-label="Ölçülü canlandırma videosunu büyüt">
+        <div class="oynatici genis" role="button" tabindex="0" aria-label="Ölçülü canlandırma videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/644ae422-1fa7-4872-8ce9-51b318b070b2.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/7b1af8a3-a48c-4b14-bdad-cfde85194724.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div>
       </article>
     <div class="ortam-izgara"><figure><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/413da75c-625b-4edc-b491-273e5874a68a.jpg" alt="Fuayeden genel bakış" loading="lazy" width="1920" height="1080"><figcaption>Fuayeden genel bakış</figcaption></figure><figure><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/7401344b-9c13-48c2-b175-f57c053ffb2d.jpg" alt="Yandan: LED duvarlar ve fotoğrafçı" loading="lazy" width="1920" height="1080"><figcaption>Yandan: LED duvarlar ve fotoğrafçı</figcaption></figure><figure><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/2eed9e82-3809-4179-9265-6a8c6c1d90f4.jpg" alt="Fotoğrafçının gördüğü kare" loading="lazy" width="1920" height="1080"><figcaption>Fotoğrafçının gördüğü kare</figcaption></figure><figure><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/894b1193-7d04-4b70-942f-8b5a9fd15358.jpg" alt="Yukarıdan" loading="lazy" width="1920" height="1080"><figcaption>Yukarıdan</figcaption></figure></div>
@@ -123,9 +154,12 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
         <div class="secenek-bas"><span class="no">1</span><h3>Perde Açılışı</h3><p>Perde hemen açılır, ışıklar ve konfeti patlar, sonra perde kapanıp yeniden açılır. <span class="sure">23 saniye</span></p></div>
         <div class="ikili">
         <div><p class="etiket">Geçen kampın tünelinde</p>
-        <div class="oynatici" role="button" tabindex="0" aria-label="Perde Açılışı videosunu büyüt">
+        <div class="oynatici" role="button" tabindex="0" aria-label="Perde Açılışı videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/5a8ddea0-af98-480d-b449-1cbabdbd9955.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/aea6d028-ba5f-4637-ad89-4d35af1ab21c.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div></div>
         <figure class="otel"><p class="etiket">Royal Seginus fuayesinde</p>
           <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/86655e75-b687-4b86-859a-98efd87c6c8e.jpg" target="_blank" rel="noopener"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/86655e75-b687-4b86-859a-98efd87c6c8e.jpg" alt="Perde Açılışı: otel fuayesinde fotoğrafçının gördüğü kare" loading="lazy" width="1600" height="900"></a>
@@ -136,9 +170,12 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
         <div class="secenek-bas"><span class="no">2</span><h3>Yükselen Kapsül</h3><p>Cam kapsül balo salonundan kalkar, bulutların üstüne çıkar ve yavaşça geri iner. <span class="sure">34 saniye</span></p></div>
         <div class="ikili">
         <div><p class="etiket">Geçen kampın tünelinde</p>
-        <div class="oynatici" role="button" tabindex="0" aria-label="Yükselen Kapsül videosunu büyüt">
+        <div class="oynatici" role="button" tabindex="0" aria-label="Yükselen Kapsül videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/a2d33573-abe6-4998-aa10-d858dcd4e5dc.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/e3206c01-0399-4de4-b73f-8cd605455468.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div></div>
         <figure class="otel"><p class="etiket">Royal Seginus fuayesinde</p>
           <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/5447652a-ca9a-4f57-a4c8-653c86c76120.jpg" target="_blank" rel="noopener"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/5447652a-ca9a-4f57-a4c8-653c86c76120.jpg" alt="Yükselen Kapsül: otel fuayesinde fotoğrafçının gördüğü kare" loading="lazy" width="1600" height="900"></a>
@@ -149,9 +186,12 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
         <div class="secenek-bas"><span class="no">3</span><h3>Liderlik Asansörü</h3><p>Asansör LYK 1&#x27;den LYK 13&#x27;e durmadan yükselir; her katta o kampın en coşkulu anları akar. <span class="sure">56 saniye</span></p></div>
         <div class="ikili">
         <div><p class="etiket">Geçen kampın tünelinde</p>
-        <div class="oynatici" role="button" tabindex="0" aria-label="Liderlik Asansörü videosunu büyüt">
+        <div class="oynatici" role="button" tabindex="0" aria-label="Liderlik Asansörü videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/57677fa6-899f-45aa-9a00-70e37b61b115.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/8fdab959-0ba6-4e3c-b41f-0a1a8e90a87e.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div></div>
         <figure class="otel"><p class="etiket">Royal Seginus fuayesinde</p>
           <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/e05f16f3-d092-4c86-9c67-c606a191aacc.jpg" target="_blank" rel="noopener"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/e05f16f3-d092-4c86-9c67-c606a191aacc.jpg" alt="Liderlik Asansörü: otel fuayesinde fotoğrafçının gördüğü kare" loading="lazy" width="1600" height="900"></a>
@@ -166,9 +206,12 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
         <div class="secenek-bas"><span class="no">4</span><h3>Saray Koridoru</h3><p>Kadife duvarlar, kristal avizeler ve çerçevelerde geçmiş kampların anları. </p></div>
         <div class="ikili">
         <div><p class="etiket">Geçen kampın tünelinde</p>
-        <div class="oynatici" role="button" tabindex="0" aria-label="Saray Koridoru videosunu büyüt">
+        <div class="oynatici" role="button" tabindex="0" aria-label="Saray Koridoru videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/bd0b2b59-e379-4a87-83f3-c46497e59639.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/0cb394e7-5dc1-4f0d-957d-3d4cd61cd9c9.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div></div>
         <figure class="otel"><p class="etiket">Royal Seginus fuayesinde</p>
           <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/52520f76-1d30-47be-aa06-dd37dc9d2738.jpg" target="_blank" rel="noopener"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/52520f76-1d30-47be-aa06-dd37dc9d2738.jpg" alt="Saray Koridoru: otel fuayesinde fotoğrafçının gördüğü kare" loading="lazy" width="1600" height="900"></a>
@@ -179,9 +222,12 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
         <div class="secenek-bas"><span class="no">5</span><h3>Taç Anı</h3><p>Kişinin başının hemen üstünde gül altını bir taç, etrafında dev pırlantalar. </p></div>
         <div class="ikili">
         <div><p class="etiket">Geçen kampın tünelinde</p>
-        <div class="oynatici" role="button" tabindex="0" aria-label="Taç Anı videosunu büyüt">
+        <div class="oynatici" role="button" tabindex="0" aria-label="Taç Anı videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/9c2dcaf5-c543-47f1-b1eb-e182b3419753.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/f401ae89-8c23-422b-bf99-be4203fbb0d9.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div></div>
         <figure class="otel"><p class="etiket">Royal Seginus fuayesinde</p>
           <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/30152774-3acb-417d-8518-6aaa252e96b9.jpg" target="_blank" rel="noopener"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/30152774-3acb-417d-8518-6aaa252e96b9.jpg" alt="Taç Anı: otel fuayesinde fotoğrafçının gördüğü kare" loading="lazy" width="1600" height="900"></a>
@@ -192,9 +238,12 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
         <div class="secenek-bas"><span class="no">6</span><h3>Sahne Senin</h3><p>Arkada Best Of ana sahnesi; ışıklar, kıvılcımlar ve konfeti. </p></div>
         <div class="ikili">
         <div><p class="etiket">Geçen kampın tünelinde</p>
-        <div class="oynatici" role="button" tabindex="0" aria-label="Sahne Senin videosunu büyüt">
+        <div class="oynatici" role="button" tabindex="0" aria-label="Sahne Senin videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/3a7c6982-16ad-477e-b6c9-4bb5d6858cc5.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/07d61c20-4834-4b97-8bc4-ba30f53de252.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div></div>
         <figure class="otel"><p class="etiket">Royal Seginus fuayesinde</p>
           <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/aba470e9-54b4-4d1b-bafc-66f472be1d2d.jpg" target="_blank" rel="noopener"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/aba470e9-54b4-4d1b-bafc-66f472be1d2d.jpg" alt="Sahne Senin: otel fuayesinde fotoğrafçının gördüğü kare" loading="lazy" width="1600" height="900"></a>
@@ -205,9 +254,12 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
         <div class="secenek-bas"><span class="no">7</span><h3>Yıldızlara Yükseliş</h3><p>Bulutların üstünde, yıldızların altında cam bir kapsül. </p></div>
         <div class="ikili">
         <div><p class="etiket">Geçen kampın tünelinde</p>
-        <div class="oynatici" role="button" tabindex="0" aria-label="Yıldızlara Yükseliş videosunu büyüt">
+        <div class="oynatici" role="button" tabindex="0" aria-label="Yıldızlara Yükseliş videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/42e9147e-7dd2-46f6-b669-0058238467bd.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/1a7a3b80-9fae-4a88-aabb-4b8b1cee70a2.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div></div>
         <figure class="otel"><p class="etiket">Royal Seginus fuayesinde</p>
           <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/7ae8e362-c4a8-41f4-8257-ad32315b8d48.jpg" target="_blank" rel="noopener"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/7ae8e362-c4a8-41f4-8257-ad32315b8d48.jpg" alt="Yıldızlara Yükseliş: otel fuayesinde fotoğrafçının gördüğü kare" loading="lazy" width="1600" height="900"></a>
@@ -218,9 +270,12 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
         <div class="secenek-bas"><span class="no">8</span><h3>Kristal Gül Serası</h3><p>Güller, gül altını kemerler ve yolun sonunda ışıklı bir köşk. </p></div>
         <div class="ikili">
         <div><p class="etiket">Geçen kampın tünelinde</p>
-        <div class="oynatici" role="button" tabindex="0" aria-label="Kristal Gül Serası videosunu büyüt">
+        <div class="oynatici" role="button" tabindex="0" aria-label="Kristal Gül Serası videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/f1e1cc9b-a6c2-48f6-b803-d6ddb1ea2451.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/44a9e198-4c38-460e-9e58-fad33a4bb241.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div></div>
         <figure class="otel"><p class="etiket">Royal Seginus fuayesinde</p>
           <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/4e5ac69f-aa18-4b87-9caf-39f60d196b52.jpg" target="_blank" rel="noopener"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/4e5ac69f-aa18-4b87-9caf-39f60d196b52.jpg" alt="Kristal Gül Serası: otel fuayesinde fotoğrafçının gördüğü kare" loading="lazy" width="1600" height="900"></a>
@@ -235,9 +290,12 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
         <div class="secenek-bas"><span class="no">9</span><h3>Halka Portal</h3><p>Dev krom halkalar döner, sonra hepsi kilitlenir: kamp numaraları arasından 13 Best Of logosunun altına oturur, grubun arkasında ışıktan bir hale oluşur. <span class="sure">24 saniyelik döngü</span></p></div>
         <div class="ikili">
         <div><p class="etiket">Geçen kampın tünelinde</p>
-        <div class="oynatici" role="button" tabindex="0" aria-label="Halka Portal videosunu büyüt">
+        <div class="oynatici" role="button" tabindex="0" aria-label="Halka Portal videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/0f58799d-220d-4b3f-b981-6cc5e1a3e0dd.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/43573f06-f838-462b-8a31-e500264b063e.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div></div>
         <figure class="otel"><p class="etiket">Royal Seginus fuayesinde</p>
           <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/2eed9e82-3809-4179-9265-6a8c6c1d90f4.jpg" target="_blank" rel="noopener"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/2eed9e82-3809-4179-9265-6a8c6c1d90f4.jpg" alt="Halka Portal: otel fuayesinde fotoğrafçının gördüğü kare" loading="lazy" width="1600" height="900"></a>
@@ -248,9 +306,12 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
         <div class="secenek-bas"><span class="no">10</span><h3>Mor Halı Flaşları</h3><p>İplerin ardında yüzlerce fotoğrafçı. Flaşlar sıklaşır, hepsi aynı anda patlar, ardından flaş yıldızları havada asılı kalır. <span class="sure">24 saniyelik döngü</span></p></div>
         <div class="ikili">
         <div><p class="etiket">Geçen kampın tünelinde</p>
-        <div class="oynatici" role="button" tabindex="0" aria-label="Mor Halı Flaşları videosunu büyüt">
+        <div class="oynatici" role="button" tabindex="0" aria-label="Mor Halı Flaşları videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/5f2a4043-0302-4010-a87b-dfe413ddfbd1.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/0be5e3f5-9e45-4236-8d4f-476939f51a92.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div></div>
         <figure class="otel"><p class="etiket">Royal Seginus fuayesinde</p>
           <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/efd0a7ed-6629-4fa3-b3ee-0f4f7c8d5dfd.jpg" target="_blank" rel="noopener"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/efd0a7ed-6629-4fa3-b3ee-0f4f7c8d5dfd.jpg" alt="Mor Halı Flaşları: otel fuayesinde fotoğrafçının gördüğü kare" loading="lazy" width="1600" height="900"></a>
@@ -261,9 +322,12 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
         <div class="secenek-bas"><span class="no">11</span><h3>Çatlayan Duvar</h3><p>Mermer duvar Best Of logosundan çatlar ve parçalar savrulur. Ardında 13 kampın anıları akar, sonra duvar yeniden kapanır. <span class="sure">24 saniyelik döngü</span></p></div>
         <div class="ikili">
         <div><p class="etiket">Geçen kampın tünelinde</p>
-        <div class="oynatici" role="button" tabindex="0" aria-label="Çatlayan Duvar videosunu büyüt">
+        <div class="oynatici" role="button" tabindex="0" aria-label="Çatlayan Duvar videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/12f3efcd-821d-45db-8bcb-f41f8fc34add.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/f9c5c543-5de0-461f-b4f6-8e922eab23ea.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div></div>
         <figure class="otel"><p class="etiket">Royal Seginus fuayesinde</p>
           <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/2871a3c5-2c36-4699-a6b5-772dc925f2d5.jpg" target="_blank" rel="noopener"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/2871a3c5-2c36-4699-a6b5-772dc925f2d5.jpg" alt="Çatlayan Duvar: otel fuayesinde fotoğrafçının gördüğü kare" loading="lazy" width="1600" height="900"></a>
@@ -274,9 +338,12 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
         <div class="secenek-bas"><span class="no">12</span><h3>Krom Dalga</h3><p>Tünel, sıvı krom bir denizin ortasında cam bir kutuya dönüşür. Dev dalga cama çarpar ve tepede donar. <span class="sure">24 saniyelik döngü</span></p></div>
         <div class="ikili">
         <div><p class="etiket">Geçen kampın tünelinde</p>
-        <div class="oynatici" role="button" tabindex="0" aria-label="Krom Dalga videosunu büyüt">
+        <div class="oynatici" role="button" tabindex="0" aria-label="Krom Dalga videosunu oynat ve büyüt">
           <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/ec32dbb0-d8fd-4ec6-99ca-138d51d5cda3.mp4" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/1908b71f-f1f4-45f4-9b96-a16aa8ad4d9f.jpg" muted loop playsinline preload="metadata"></video>
+          <span class="rozet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Video</span>
+          <span class="oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
           <span class="ipucu">Büyütmek için dokunun</span>
+          <span class="ilerleme" aria-hidden="true"><i></i></span>
         </div></div>
         <figure class="otel"><p class="etiket">Royal Seginus fuayesinde</p>
           <a href="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/01c14305-62f0-44df-8609-74154fecf486.jpg" target="_blank" rel="noopener"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_35192fKECdl9FVyn2yIXa1SoC0O/01c14305-62f0-44df-8609-74154fecf486.jpg" alt="Krom Dalga: otel fuayesinde fotoğrafçının gördüğü kare" loading="lazy" width="1600" height="900"></a>
@@ -323,11 +390,27 @@ details img { display: block; width: 100%; height: auto; margin-top: 12px; borde
     videolar.forEach(function (v) { io.observe(v); });
   }
   document.querySelectorAll('.oynatici').forEach(function (o) {
-    o.addEventListener('click', function () {
-      var v = o.querySelector('video');
+    var v = o.querySelector('video');
+    var cubuk = o.querySelector('.ilerleme i');
+    var kare = 0;
+    function ciz() {
+      if (cubuk && v.duration) { cubuk.style.transform = 'scaleX(' + (v.currentTime / v.duration) + ')'; }
+      if (!v.paused) { kare = requestAnimationFrame(ciz); }
+    }
+    v.addEventListener('playing', function () {
+      o.classList.add('oynuyor');
+      cancelAnimationFrame(kare);
+      kare = requestAnimationFrame(ciz);
+    });
+    v.addEventListener('pause', function () { o.classList.remove('oynuyor'); });
+    function buyut() {
       if (v.requestFullscreen) { v.requestFullscreen().catch(function () {}); }
       else if (v.webkitEnterFullscreen) { v.webkitEnterFullscreen(); }
       v.play().catch(function () {});
+    }
+    o.addEventListener('click', buyut);
+    o.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); buyut(); }
     });
   });
 })();
